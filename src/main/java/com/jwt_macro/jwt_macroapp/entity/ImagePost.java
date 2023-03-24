@@ -1,5 +1,4 @@
 package com.jwt_macro.jwt_macroapp.entity;
-
 import javax.persistence.*;
 import java.util.Set;
 
@@ -13,30 +12,26 @@ public class ImagePost {
     private String postCamera;
     private String postLens;
     private String postAperture;
-    private Double postRating;
-    private Double avgPostRating;
+    private String userFirstName;
+    private String userLastName;
+    private String userName;
 
     private String postType;
 
 
-    public void setUserName(User user) {
-        this.userName = user.getUserName();
-    }
-
-    private String userName;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "images_post",
-        joinColumns = {
-            @JoinColumn(name = "post_id"),
-        },
-    inverseJoinColumns = {
-            @JoinColumn(name = "image_id")
+            joinColumns = {
+                    @JoinColumn(name = "post_id"),
+            },
+            inverseJoinColumns = {
+                    @JoinColumn(name = "image_id")
 
-    })
+            })
     private Set<ImageModel> postImages;
 
-
+ 
     public Set<ImageModel> getPostImages() {
         return postImages;
     }
@@ -100,19 +95,27 @@ public class ImagePost {
         this.postAperture = postAperture;
     }
 
-    public Double getPostRating() {
-        return postRating;
+    public String getUserFirstName() {
+        return userFirstName;
     }
 
-    public void setPostRating(Double postRating) {
-        this.postRating = postRating;
+    public void setUserFirstName(String userFirstName) {
+        this.userFirstName = userFirstName;
     }
 
-    public Double getAvgPostRating() {
-        return avgPostRating;
+    public String getUserLastName() {
+        return userLastName;
     }
 
-    public void setAvgPostRating(Double avgPostRating) {
-        this.avgPostRating = avgPostRating;
+    public void setUserLastName(String userLastName) {
+        this.userLastName = userLastName;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 }

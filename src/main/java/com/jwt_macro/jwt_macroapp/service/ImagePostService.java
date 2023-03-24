@@ -17,16 +17,27 @@ public class ImagePostService {
         return imagePostDao.save(imagePost);
     }
 
-    public List<ImagePost> getAllPosts() {
-        return (List<ImagePost>)imagePostDao.findAll();
+    public List<ImagePost> getAllPosts(String searchKey){
+        if(searchKey.equals("")){
+            return (List<ImagePost>)imagePostDao.findAll();
+
+        }else {
+            return imagePostDao.findByUserNameContainingIgnoreCase(searchKey);
+        }
+
     }
 
     public void deletePostDetails(Integer postId) {
         imagePostDao.deleteById((postId));
     }
 
+    public ImagePost getPostByUser(Integer postId){
+        return imagePostDao.findById(postId).get();
+    }
+
     public ImagePost getPostById(Integer postId){
         return imagePostDao.findById(postId).get();
     }
+
 
 }

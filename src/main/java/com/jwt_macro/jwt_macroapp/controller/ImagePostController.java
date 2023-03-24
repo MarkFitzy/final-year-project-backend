@@ -4,7 +4,9 @@ import com.jwt_macro.jwt_macroapp.entity.ImageModel;
 import com.jwt_macro.jwt_macroapp.entity.ImagePost;
 import com.jwt_macro.jwt_macroapp.service.ImagePostService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.CacheControl;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -48,14 +50,23 @@ public class ImagePostController {
     }
 
     @GetMapping({"/getAllPosts"})
-    public List<ImagePost> getAllPosts(){
-        return imagePostService.getAllPosts();
+    public ResponseEntity<List<ImagePost>> getAllPosts(@RequestParam (defaultValue = "")String searchKey){
+        List<ImagePost> result = imagePostService.getAllPosts(searchKey);
+        System.out.println("Result =>" + result.size());
+        return ResponseEntity.ok()
+                .cacheControl(CacheControl.noCache())
+                .body(result);
     }
 
     @GetMapping({"getPostById/{postId}"})
     public ImagePost getPostById(@PathVariable("postId") Integer postId) {
         return imagePostService.getPostById(postId);
     }
+
+//    @GetMapping({"getPostsByUserName/{userName}"})
+//    public ImagePost getPostsByUserName(@PathVariable("userName") String userName) {
+//        return imagePostService.getPostsByUserName(userName);
+//    }
 
     @DeleteMapping({"/deletePostDetails/{postId}"})
     public void deletePostDetails(@PathVariable("postId") Integer postId) {

@@ -2,16 +2,15 @@ package com.jwt_macro.jwt_macroapp.controller;
 
 
 
+import com.jwt_macro.jwt_macroapp.entity.ImagePost;
 import com.jwt_macro.jwt_macroapp.entity.User;
 import com.jwt_macro.jwt_macroapp.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
+import java.util.List;
 
 @RestController
 public class UserController {
