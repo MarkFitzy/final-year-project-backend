@@ -18,8 +18,6 @@ public class ImagePost {
 
     private String postType;
 
-
-
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "images_post",
             joinColumns = {
