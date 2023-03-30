@@ -3,7 +3,6 @@ package com.jwt_macro.jwt_macroapp.service;
 
 import com.jwt_macro.jwt_macroapp.dao.RoleDao;
 import com.jwt_macro.jwt_macroapp.dao.UserDao;
-import com.jwt_macro.jwt_macroapp.entity.ImagePost;
 import com.jwt_macro.jwt_macroapp.entity.Role;
 import com.jwt_macro.jwt_macroapp.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +10,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Service
@@ -48,15 +46,6 @@ public class UserService {
         adminUser.setRole(adminRoles);
         userDao.save(adminUser);
 
-//        User user = new User();
-//        user.setUserName("raj123");
-//        user.setUserPassword(getEncodedPassword("raj@123"));
-//        user.setUserFirstName("raj");
-//        user.setUserLastName("sharma");
-//        Set<Role> userRoles = new HashSet<>();
-//        userRoles.add(userRole);
-//        user.setRole(userRoles);
-//        userDao.save(user);
     }
 
     public User registerNewUser(User user){

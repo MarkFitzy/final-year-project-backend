@@ -1,8 +1,6 @@
 package com.jwt_macro.jwt_macroapp.controller;
 
 
-
-import com.jwt_macro.jwt_macroapp.entity.ImagePost;
 import com.jwt_macro.jwt_macroapp.entity.User;
 import com.jwt_macro.jwt_macroapp.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

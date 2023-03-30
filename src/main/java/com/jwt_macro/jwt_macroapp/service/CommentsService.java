@@ -2,7 +2,6 @@ package com.jwt_macro.jwt_macroapp.service;
 
 import com.jwt_macro.jwt_macroapp.dao.CommentsDao;
 import com.jwt_macro.jwt_macroapp.entity.Comments;
-import com.jwt_macro.jwt_macroapp.entity.ImagePost;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

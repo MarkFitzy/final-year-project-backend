@@ -4,7 +4,6 @@ import com.jwt_macro.jwt_macroapp.entity.Comments;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
 
 @Repository
 public interface CommentsDao extends CrudRepository<Comments, Integer> {
