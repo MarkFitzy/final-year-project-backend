@@ -63,7 +63,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>com.jwt_macro.jwt_macroapp</mainClass>
+                            <mainClass>com.jwt_macro.jwt_macroapp.JwtMacroappApplication</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
