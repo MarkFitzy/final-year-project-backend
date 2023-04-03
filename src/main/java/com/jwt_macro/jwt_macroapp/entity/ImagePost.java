@@ -17,6 +17,15 @@ public class ImagePost {
     private String userName;
 
     private String postType;
+    private String postPhotoshop;
+
+    public String getPostPhotoshop() {
+        return postPhotoshop;
+    }
+
+    public void setPostPhotoshop(String postPhotoshop) {
+        this.postPhotoshop = postPhotoshop;
+    }
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "images_post",
