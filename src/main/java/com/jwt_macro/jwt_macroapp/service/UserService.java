@@ -6,6 +6,7 @@ import com.jwt_macro.jwt_macroapp.dao.UserDao;
 import com.jwt_macro.jwt_macroapp.entity.Role;
 import com.jwt_macro.jwt_macroapp.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +16,17 @@ import java.util.Set;
 @Service
 public class UserService {
 
+    @Value("${macro.admin.username}")
+    private String adminUsername;
+
+    @Value("${macro.admin.password}")
+    private String adminPassword;
+
+    @Value("${macro.admin.firstname}")
+    private String adminFirstName;
+
+    @Value("${macro.admin.lastname}")
+    private String adminLastName;
     @Autowired
     private UserDao userDao;
 
@@ -37,10 +49,10 @@ public class UserService {
         roleDao.save(userRole);
 
         User adminUser = new User();
-        adminUser.setUserName("MacroSocialAdmin93!");
-        adminUser.setUserPassword(getEncodedPassword("MelodyAmplify23!"));
-        adminUser.setUserFirstName("Macro");
-        adminUser.setUserLastName("Admin");
+        adminUser.setUserName(adminUsername);
+        adminUser.setUserPassword(getEncodedPassword(adminPassword));
+        adminUser.setUserFirstName(adminFirstName);
+        adminUser.setUserLastName(adminLastName);
         Set<Role> adminRoles = new HashSet<>();
         adminRoles.add(adminRole);
         adminUser.setRole(adminRoles);
