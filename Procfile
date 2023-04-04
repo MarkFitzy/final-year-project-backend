@@ -1,1 +1,0 @@
-web: java -Dserver.port=$PORT -cp target/classes:target/dependency/* com.jwt_macro.jwt_macroapp.JwtMacroappApplication
